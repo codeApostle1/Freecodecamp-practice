@@ -1,8 +1,8 @@
 :root {
-    --bg-color : #0a0a23;
-    --text-color : #ffffff;
-    --bg2: #c70d0d;
-    --button-color: #feac32;
+    --bg-color: #0a0a23;
+    --text-color: #ffffff;
+    --bg2: #0d8c0d; /* Changed to green */
+    --button-color: #32feac; /* Changed to green */
 }
 
 body {
@@ -46,7 +46,8 @@ button {
     cursor: pointer;
     color: var(--bg-color);
     background-color: var(--button-color);
-    background-image: linear-gradient(#fecc4c, #ffac33);
+    background-image: linear-gradient(#4cfecc, #33ffac); /* Changed to green gradient */
     border: 3px solid var(--button-color);
 
 }
+
