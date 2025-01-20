@@ -48,6 +48,7 @@ function goTown() {
     // button3.onclick = fightDragon;
 
     // text.innerText = 'You are in the town square. You see a sign that says \"Store\".';
+    update(locations[0]);
 }
 
 function goStore() {
@@ -61,9 +62,10 @@ function goStore() {
     // button3.onclick = goTown;
 
     // text.innerText = 'You enter the store.';
+    update(locations[1]);
 }
 function goCave() {
-    console.log("Going to cave.");
+   update(locations[2]);
     
 }
 
@@ -81,7 +83,8 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function buyHealth() {
-    
+    gold -= 10;
+    health += 10;
 }
 
 function buyWeapon() {
@@ -89,15 +92,17 @@ function buyWeapon() {
 }
 
 function update (location) {
-    button1.innerText = 'Go to store';
-    button2.innerText = 'Go to cave';
-    button3.innerText = 'Fight dragon';
+    button1.innerText = location["button text"][0];
+    button2.innerText = location["button text"][1];
+    button3.innerText = location["button text"][2];
 
-    button1.onclick = goStore;
-    button2.onclick = goCave;
-    button3.onclick = fightDragon;
+    button1.onclick = location["button functions"][0];
+    button2.onclick = location["button functions"][1];
+    button3.onclick = location["button functions"][2];
 
-    text.innerText = 'You are in the town square. You see a sign that says \"Store\".';
+    // text.innerText = 'You are in the town square. You see a sign that says \"Store\".';
+
+    text.innerText = location.text;
 }
 
 const locations = [
@@ -120,8 +125,23 @@ const locations = [
 
         text: 'You enter the store.'
 
-    }
+    },
 
-    
+    {
+        name: "cave",
+
+        "button text": ['Fight slime', 'Fight fanged beast', 'Go to town square'],
+
+        "button functions":[fightSlime, fightBeast, goTown],
+
+        text: 'You enter the cave. You see some monsters.'
+    }
 ];
 
+function fightSlime() {
+  
+}
+
+function fightBeast() {
+
+}
