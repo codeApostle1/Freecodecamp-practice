@@ -100,7 +100,15 @@ function buyHealth() {
 
 
 function buyWeapon() {
-    
+    if (gold >= 30) {
+        gold -= 30;
+        currentWeaponIndex++;
+        goldText.innerText = gold;
+
+        let newWeapon = weapons[currentWeaponIndex].name;
+
+        text.innerText =  "You now have a " + newWeapon + ".";
+    }
 }
 
 function update (location) {
@@ -143,35 +151,6 @@ const weapons = [
         power: 100,
     },
 
-    {
-        name: 'axe',
-        power: 200,
-    },
-
-    {
-        name: 'crossbow',
-        power: 300,
-    },
-
-    {
-        name: 'flame thrower',
-        power: 500,
-    },
-
-    {
-        name: 'machine gun',
-        power: 1000,
-    },
-
-    {
-        name: 'laser gun',
-        power: 2000,
-    },
-
-    {
-        name: 'nuclear bomb',
-        power: 5000,
-    }
 ];
 // end of weapons array
 
