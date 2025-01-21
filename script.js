@@ -83,9 +83,21 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function buyHealth() {
-    gold -= 10;
-    health += 10;
+
+    //assignmentv line
+    if (gold >= 10) {
+        gold -= 10;
+        health += 10;
+        
+        goldText.innerText = gold;
+    healthText.innerText = health;
+    } else {
+   text.innerText = "You do not have enough gold to buy health."; 
+    }
+
 }
+
+
 
 function buyWeapon() {
     
@@ -104,6 +116,64 @@ function update (location) {
 
     text.innerText = location.text;
 }
+
+
+//after finising the buy health function, do the buy weapon function
+
+// we create an array for weapons variable
+
+const weapons = [
+    {
+        name: 'stick',
+        power: 5,
+    },
+
+    {
+        name: 'dagger',
+        power: 30,
+    },
+
+    {
+        name: 'claw hammer',
+        power: 50,
+    },
+
+    {
+        name: 'sword',
+        power: 100,
+    },
+
+    {
+        name: 'axe',
+        power: 200,
+    },
+
+    {
+        name: 'crossbow',
+        power: 300,
+    },
+
+    {
+        name: 'flame thrower',
+        power: 500,
+    },
+
+    {
+        name: 'machine gun',
+        power: 1000,
+    },
+
+    {
+        name: 'laser gun',
+        power: 2000,
+    },
+
+    {
+        name: 'nuclear bomb',
+        power: 5000,
+    }
+];
+// end of weapons array
 
 const locations = [
     {
