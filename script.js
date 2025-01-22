@@ -1,6 +1,6 @@
 let xp = 0;
 let health = 100
-let gold = 50 
+let gold = 250 
 
 let currentWeaponIndex = 0
 
@@ -121,7 +121,29 @@ function buyWeapon() {
         }  
     } else {
         text.innerText = "You already have the most powerful weapon!"
+
+        //SELLING THE WEAPONS
+
+        // button2.innerText = "Sell weapon for 15 gold";
+        button2.innerText = "Sell weapon for 15 gold";
+        button2.onclick = sellWeapon
     }
+}
+
+//SELL WEAPON FUNCTION
+function sellWeapon() {
+    if( inventory.length > 1) {
+        gold += 15;
+        goldText.innerText = gold;
+
+        let currentWeapon = inventory.shift();
+
+        text.innerText = "You sold a " + currentWeapon + "." ;
+
+        text.innerText += " In your inventory you have: " + inventory;
+    } else {
+        text.innerText = "You cannot sell your last weapon."
+}
 }
 
 function update (location) {
